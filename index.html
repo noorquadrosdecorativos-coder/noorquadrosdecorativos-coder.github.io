@@ -1,157 +1,175 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Noor Quadros Decorativos</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #fff;
-      color: #000;
-      text-align: center;
-    }
 
-    /* Logo */
-    header {
-      background-color: white;
-      padding: 20px 0;
-    }
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 
-    header img {
-      max-width: 250px;
-      height: auto;
-    }
+  <!-- CSS externo (forneço em seguida) -->
+  <link rel="stylesheet" href="style.css">
 
-    /* Menu */
-    nav {
-      background-color: white;
-      padding: 10px 0;
-      border-top: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
-    }
-
-    nav a {
-      color: black;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 0 15px;
-    }
-
-    nav a:hover {
-      color: #d4af37;
-    }
-
-    /* Carrossel */
-    .carousel {
-      position: relative;
-      max-width: 100%;
-      margin: auto;
-      overflow: hidden;
-    }
-
-    .carousel img {
-      width: 100%;
-      height: auto;
-      display: none;
-    }
-
-    .carousel img.active {
-      display: block;
-    }
-
-    /* Botões do carrossel */
-    .prev, .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      width: auto;
-      padding: 16px;
-      margin-top: -22px;
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
-      transition: 0.3s;
-      border-radius: 0 3px 3px 0;
-      background-color: rgba(0,0,0,0.5);
-      user-select: none;
-    }
-
-    .next {
-      right: 0;
-      border-radius: 3px 0 0 3px;
-    }
-
-    .prev:hover, .next:hover {
-      background-color: rgba(0,0,0,0.8);
-    }
-
-    /* Botão catálogo */
-    .btn {
-      background-color: #d4af37;
-      color: black;
-      padding: 10px 20px;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
-      margin-top: 20px;
-      border-radius: 4px;
-    }
-
-    .btn:hover {
-      background-color: #b9972f;
-    }
-  </style>
+  <!-- Meta tags para SEO minimal -->
+  <meta name="description" content="Noor Quadros Decorativos — quadros impressos em tecido, design exclusivo para sua parede.">
 </head>
 <body>
 
-  <!-- Logo -->
-  <header>
-    <img src="https://noorquadrosdecorativos-coder.github.io/logo.png" alt="Noor Quadros Decorativos">
+  <!-- HEADER: logo centralizada -->
+  <header class="site-header">
+    <!-- Substitua URL_DA_LOGO pelo caminho real (ex: /img/logo.png ou https://.../logo.png) -->
+    <img src="URL_DA_LOGO" alt="Noor Quadros Decorativos" class="logo" id="site-logo">
   </header>
 
-  <!-- Menu -->
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#produtos">Todos os Produtos</a>
-    <a href="#categorias">Categorias</a>
-    <a href="#personalizado">Pedido Personalizado</a>
-    <a href="#frete">Calcular Frete</a>
+  <!-- NAV principal -->
+  <nav class="main-nav" role="navigation" aria-label="Menu principal">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#produtos">Todos os Produtos</a></li>
+      <li><a href="#categorias">Categorias</a></li>
+      <li><a href="#personalizado">Pedido Personalizado</a></li>
+      <li><a href="#frete">Calcular Frete</a></li>
+    </ul>
   </nav>
 
-  <!-- Carrossel -->
-  <div class="carousel">
-    <img src="URL_IMAGEM_1" class="active" alt="Promoção 1">
-    <img src="URL_IMAGEM_2" alt="Promoção 2">
-    <img src="URL_IMAGEM_3" alt="Promoção 3">
+  <!-- INÍCIO: área do carrossel (destaques/promos) -->
+  <main>
+    <section id="home" class="hero-section">
+      <div id="carousel" class="carousel" aria-label="Carrossel de promoções">
+        <!-- script.js irá popular este elemento automaticamente com as imagens colocadas na pasta /img/destaques/ -->
+        <div class="carousel-loading">Carregando destaques...</div>
+      </div>
 
-    <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-    <a class="next" onclick="changeSlide(1)">&#10095;</a>
-  </div>
+      <div class="hero-cta">
+        <a class="btn primary" href="#produtos">Ver Catálogo</a>
+      </div>
+    </section>
 
-  <!-- Botão -->
-  <a href="#catalogo" class="btn">Ver Catálogo</a>
+    <!-- CATÁLOGO (exemplos) -->
+    <section id="produtos" class="section produtos-section">
+      <h2 class="section-title">Catálogo Geral</h2>
 
-  <script>
-    let slideIndex = 0;
-    const slides = document.querySelectorAll(".carousel img");
+      <div class="produtos-grid" id="produtos-grid">
+        <!-- Exemplo de card de produto.
+             O atributo data-images contém lista separada por vírgula com os nomes (ou URLs) das imagens
+             do produto. O script cria o efeito hover que faz o loop das imagens listadas.
+             Substitua os caminhos por suas imagens reais (ex: /img/produtos/prod1-1.jpg) -->
+        <article class="produto-card" data-sku="P001" data-images="prod1-1.jpg,prod1-2.jpg,prod1-3.jpg" data-preco="189.90">
+          <div class="produto-imgwrap">
+            <img src="img/produtos/prod1-1.jpg" alt="Abstrato Moderno" class="produto-img">
+          </div>
+          <h3 class="produto-title">Abstrato Moderno</h3>
+          <div class="produto-price">R$ <span class="preco">189,90</span></div>
+          <a href="#" class="btn secondary comprar-btn">Comprar</a>
+        </article>
 
-    function showSlide(index) {
-      slides.forEach(slide => slide.classList.remove("active"));
-      slides[index].classList.add("active");
-    }
+        <article class="produto-card" data-sku="P002" data-images="prod2-1.jpg,prod2-2.jpg" data-preco="149.90">
+          <div class="produto-imgwrap">
+            <img src="img/produtos/prod2-1.jpg" alt="Floral Clássico" class="produto-img">
+          </div>
+          <h3 class="produto-title">Floral Clássico</h3>
+          <div class="produto-price">R$ <span class="preco">149,90</span></div>
+          <a href="#" class="btn secondary comprar-btn">Comprar</a>
+        </article>
 
-    function changeSlide(n) {
-      slideIndex += n;
-      if (slideIndex >= slides.length) slideIndex = 0;
-      if (slideIndex < 0) slideIndex = slides.length - 1;
-      showSlide(slideIndex);
-    }
+        <article class="produto-card" data-sku="P003" data-images="prod3-1.jpg,prod3-2.jpg,prod3-3.jpg" data-preco="299.90">
+          <div class="produto-imgwrap">
+            <img src="img/produtos/prod3-1.jpg" alt="Trio Geométrico" class="produto-img">
+          </div>
+          <h3 class="produto-title">Trio Geométrico</h3>
+          <div class="produto-price">R$ <span class="preco">299,90</span></div>
+          <a href="#" class="btn secondary comprar-btn">Comprar</a>
+        </article>
 
-    // Passagem automática a cada 4s
-    setInterval(() => changeSlide(1), 4000);
-  </script>
+        <!-- Adicione mais produtos seguindo o mesmo padrão -->
+      </div>
+    </section>
 
+    <!-- CATEGORIAS (linka para seções ou futuras páginas) -->
+    <section id="categorias" class="section categorias-section">
+      <h2 class="section-title">Categorias</h2>
+      <div class="categorias-grid">
+        <a class="categoria-card" href="#cat-abstrato">
+          <img src="img/categorias/abstrato.jpg" alt="Abstrato">
+          <div class="categoria-title">Abstrato</div>
+        </a>
+        <a class="categoria-card" href="#cat-flores">
+          <img src="img/categorias/florais.jpg" alt="Florais">
+          <div class="categoria-title">Florais</div>
+        </a>
+        <a class="categoria-card" href="#cat-trio">
+          <img src="img/categorias/trio.jpg" alt="Trio & Duplas">
+          <div class="categoria-title">Trio & Duplas</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- PEDIDO PERSONALIZADO -->
+    <section id="personalizado" class="section personalizado-section">
+      <h2 class="section-title">Pedido Personalizado</h2>
+
+      <form id="form-personalizado" class="form-personalizado" enctype="multipart/form-data">
+        <label for="p-nome">Nome</label>
+        <input id="p-nome" name="nome" type="text" required>
+
+        <label for="p-email">E-mail</label>
+        <input id="p-email" name="email" type="email" required>
+
+        <label for="p-imagem">Upload da sua imagem</label>
+        <input id="p-imagem" name="imagem" type="file" accept="image/*">
+
+        <label for="p-descricao">Descrição (tamanho / estilo / observações)</label>
+        <textarea id="p-descricao" name="descricao" rows="4"></textarea>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Enviar Pedido</button>
+        </div>
+
+        <p class="form-note">Após o envio entraremos em contato por e-mail com orçamento e confirmação.</p>
+      </form>
+    </section>
+
+    <!-- CALCULADORA DE FRETE (Correios) -->
+    <section id="frete" class="section frete-section">
+      <h2 class="section-title">Calcular Frete</h2>
+
+      <form id="form-frete" class="form-frete">
+        <label for="cep-origem">CEP Origem</label>
+        <input id="cep-origem" name="cep-origem" type="text" placeholder="00000-000" pattern="\d{5}-?\d{3}" required>
+
+        <label for="cep-destino">CEP Destino</label>
+        <input id="cep-destino" name="cep-destino" type="text" placeholder="00000-000" pattern="\d{5}-?\d{3}" required>
+
+        <label for="peso">Peso (kg)</label>
+        <input id="peso" name="peso" type="number" step="0.01" value="1.00" required>
+
+        <label for="largura">Largura (cm)</label>
+        <input id="largura" name="largura" type="number" step="1" value="30" required>
+
+        <label for="altura">Altura (cm)</label>
+        <input id="altura" name="altura" type="number" step="1" value="40" required>
+
+        <label for="comprimento">Comprimento (cm)</label>
+        <input id="comprimento" name="comprimento" type="number" step="1" value="5" required>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Calcular Frete</button>
+        </div>
+      </form>
+
+      <div id="resultado-frete" class="resultado-frete" aria-live="polite"></div>
+
+      <p class="form-note small">Obs: A requisição aos Correios pode exigir um proxy (CORS). Veja comentários no arquivo script.js que envio em seguida.</p>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div>&copy; 2025 Noor Quadros Decorativos</div>
+  </footer>
+
+  <!-- JS externo (forneço em seguida) -->
+  <script src="script.js"></script>
 </body>
 </html>
