@@ -1,266 +1,157 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Noor Quadros Decorativos</title>
-  <logo href="https://noorquadrosdecorativos-coder.github.io/logo.png">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <!-- ======== ESTILOS GERAIS ======== -->
   <style>
-    :root{
-      --cor-branco:#ffffff;
-      --cor-preto:#000000;
-      --cor-dourado:#d4af37;
-      --cor-prata:#c0c0c0;
-      --fonte-titulo:'Playfair Display',serif;
-      --fonte-texto:'Open Sans',sans-serif;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #000;
+      text-align: center;
     }
 
-    *{margin:0;padding:0;box-sizing:border-box;}
-    body{
-      font-family:var(--fonte-texto);
-      color:var(--cor-preto);
-      background:var(--cor-branco);
-      scroll-behavior:smooth;
-    }
-    a{color:inherit;text-decoration:none;}
-
-    /*  */
-    {
-      background:var(--cor-branco);
-      color:var(--cor-dourado);
-      text-align:center;
-      padding:1.5rem 0;
-      font-family:var(--fonte-titulo);
-      font-size:1.8rem;
+    /* Logo */
+    header {
+      background-color: white;
+      padding: 20px 0;
     }
 
-    /* Navegação */
-    nav{
-      position:sticky;top:0;z-index:100;
-      background:var(--cor-branco);
-      border-bottom:2px solid var(--cor-preto);
-    }
-    nav ul{
-      display:flex;justify-content:center;
-      list-style:none;
-    }
-    nav li{margin:0.8rem 1.2rem;}
-    nav a{font-weight:600;}
-
-    /* Hero */
-    .hero{
-      height:80vh;
-      background:url('https://images.unsplash.com/photo-1616627553531-f2bdf7c3e620?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      color:var(--cor-branco);
-      display:flex;align-items:center;justify-content:center;
-      text-align:center;
-    }
-    .hero h1{font-family:var(--fonte-titulo);font-size:3rem;margin-bottom:0.5rem;}
-    .hero p{font-size:1.2rem;margin-bottom:1.5rem;}
-    .btn{
-      padding:0.8rem 1.6rem;
-      background:var(--cor-dourado);
-      color:var(--cor-preto);
-      border:none;border-radius:2px;
-      font-weight:600;
-      cursor:pointer;
-    }
-    .btn:hover{background:var(--cor-prata);}
-
-    /* Seções gerais */
-    section{padding:4rem 5%;}
-
-    /* Catálogo */
-    .produtos{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:2rem;
-    }
-    .produto{
-      border:1px solid var(--cor-prata);
-      padding:1rem;text-align:center;
-    }
-    .produto img{width:100%;height:220px;object-fit:cover;margin-bottom:1rem;}
-    .produto h3{font-family:var(--fonte-titulo);margin-bottom:0.5rem;}
-    .produto p{margin-bottom:1rem;}
-
-    /* Categorias */
-    .categorias{
-      display:flex;
-      flex-wrap:wrap;
-      gap:2rem;
-      justify-content:center;
-    }
-    .categoria{
-      flex:1 1 250px;
-      text-align:center;
-      border:1px solid var(--cor-prata);
-      padding-bottom:1rem;
-    }
-    .categoria img{width:100%;height:150px;object-fit:cover;margin-bottom:1rem;}
-
-    /* Formulário personalizado */
-    form{
-      max-width:600px;margin:0 auto;
-      display:flex;flex-direction:column;
-    }
-    form input,form textarea{
-      padding:0.7rem;margin-bottom:1rem;
-      border:1px solid var(--cor-prata);
-    }
-    form label{font-weight:600;margin-bottom:0.3rem;}
-    textarea{resize:vertical;min-height:120px;}
-
-    /* Footer */
-    footer{
-      background:var(--cor-preto);
-      color:var(--cor-branco);
-      text-align:center;
-      padding:1.2rem 0;
-      margin-top:3rem;
+    header img {
+      max-width: 250px;
+      height: auto;
     }
 
-    /* Responsividade simples */
-    @media(max-width:600px){
-      .hero h1{font-size:2.2rem;}
+    /* Menu */
+    nav {
+      background-color: white;
+      padding: 10px 0;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+    }
+
+    nav a {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 15px;
+    }
+
+    nav a:hover {
+      color: #d4af37;
+    }
+
+    /* Carrossel */
+    .carousel {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: auto;
+      display: none;
+    }
+
+    .carousel img.active {
+      display: block;
+    }
+
+    /* Botões do carrossel */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.3s;
+      border-radius: 0 3px 3px 0;
+      background-color: rgba(0,0,0,0.5);
+      user-select: none;
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    /* Botão catálogo */
+    .btn {
+      background-color: #d4af37;
+      color: black;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 20px;
+      border-radius: 4px;
+    }
+
+    .btn:hover {
+      background-color: #b9972f;
     }
   </style>
 </head>
-
 <body>
 
-  <!-- ========  ======== -->
+  <!-- Logo -->
   <header>
-  <img src="https://noorquadrosdecorativos-coder.github.io/logo.png" alt="Noor Quadros Decorativos" style="height:250px;">
-</header>
+    <img src="https://noorquadrosdecorativos-coder.github.io/logo.png" alt="Noor Quadros Decorativos">
+  </header>
 
-  <!-- ======== MENU ======== -->
+  <!-- Menu -->
   <nav>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#produtos">Todos os Produtos</a></li>
-      <li><a href="#categorias">Categorias</a></li>
-      <li><a href="#pedido">Pedido Personalizado</a></li>
-      <li><a href="#frete">Calcular Frete</a></li>
-    </ul>
+    <a href="#home">Home</a>
+    <a href="#produtos">Todos os Produtos</a>
+    <a href="#categorias">Categorias</a>
+    <a href="#personalizado">Pedido Personalizado</a>
+    <a href="#frete">Calcular Frete</a>
   </nav>
 
-  <!-- ======== HERO ======== -->
-  <section id="home" class="hero">
-    <div>
-      <h1>Arte que transforma</h1>
-      <p>Quadros exclusivos para todos os ambientes.</p>
-      <a href="#produtos" class="btn">Ver Catálogo</a>
-    </div>
-  </section>
+  <!-- Carrossel -->
+  <div class="carousel">
+    <img src="URL_IMAGEM_1" class="active" alt="Promoção 1">
+    <img src="URL_IMAGEM_2" alt="Promoção 2">
+    <img src="URL_IMAGEM_3" alt="Promoção 3">
 
-  <!-- ======== CATÁLOGO ======== -->
-  <section id="produtos">
-    <h2 style="text-align:center;font-family:var(--fonte-titulo);margin-bottom:2rem;">Catálogo Geral</h2>
-    <div class="produtos">
-      <div class="produto">
-        <img src="https://images.unsplash.com/photo-1600585154340-17179680c4e1?auto=format&fit=crop&w=600&q=80" alt="Quadro Abstrato">
-        <h3>Abstrato Moderno</h3>
-        <p>R$ 189,90</p>
-        <a href="#" class="btn">Comprar</a>
-      </div>
-      <div class="produto">
-        <img src="https://images.unsplash.com/photo-1525538182201-02d6eb1c1031?auto=format&fit=crop&w=600&q=80" alt="Quadro Floral">
-        <h3>Floral Clássico</h3>
-        <p>R$ 149,90</p>
-        <a href="#" class="btn">Comprar</a>
-      </div>
-      <div class="produto">
-        <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=600&q=80" alt="Trio de Quadros">
-        <h3>Trio Geométrico</h3>
-        <p>R$ 299,90</p        >
-        <a href="#" class="btn">Comprar</a>
-      </div>
-    </div>
-  </section>
+    <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+    <a class="next" onclick="changeSlide(1)">&#10095;</a>
+  </div>
 
-  <!-- ======== CATEGORIAS ======== -->
-  <section id="categorias">
-    <h2 style="text-align:center;font-family:var(--fonte-titulo);margin-bottom:2rem;">Categorias</h2>
-    <div class="categorias">
-      <div class="categoria">
-        <img src="https://images.unsplash.com/photo-1542038383-2aa5996c47d3?auto=format&fit=crop&w=600&q=80" alt="Abstrato">
-        <h3>Abstrato</h3>
-        <a href="#cat-abstrato" class="btn">Ver Categoria</a>
-      </div>
-      <div class="categoria">
-        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=600&q=80" alt="Florais">
-        <h3>Florais</h3>
-        <a href="#cat-flores" class="btn">Ver Categoria</a>
-      </div>
-      <div class="categoria">
-        <img src="https://images.unsplash.com/photo-1529676468690-a16213c4f44b?auto=format&fit=crop&w=600&q=80" alt="Trio e Duplas">
-        <h3>Trio & Duplas</h3>
-        <a href="#cat-trio" class="btn">Ver Categoria</a>
-      </div>
-    </div>
-    <!-- Espaço comentado para futuras páginas de categorias -->
-    <!-- <section id="cat-abstrato">Produtos da categoria Abstrato...</section> -->
-  </section>
+  <!-- Botão -->
+  <a href="#catalogo" class="btn">Ver Catálogo</a>
 
-  <!-- ======== PEDIDO PERSONALIZADO ======== -->
-  <section id="pedido">
-    <h2 style="text-align:center;font-family:var(--fonte-titulo);margin-bottom:2rem;">Pedido Personalizado</h2>
-    <form id="form-personalizado">
-      <label for="nome">Nome</label>
-      <input type="text" id="nome" required>
-
-      <label for="email">E-mail</label>
-      <input type="email" id="email" required>
-
-      <label for="imagem">Upload de imagem (opcional)</label>
-      <input type="file" id="imagem" accept="image/*">
-
-      <label for="descricao">Descrição do pedido</label>
-      <textarea id="descricao" placeholder="Tamanho, estilo, cores..."></textarea>
-
-      <button type="submit" class="btn">Enviar Pedido</button>
-    </form>
-  </section>
-
-  <!-- ======== CALCULADORA DE FRETE ======== -->
-  <section id="frete">
-    <h2 style="text-align:center;font-family:var(--fonte-titulo);margin-bottom:2rem;">Calcular Frete</h2>
-    <form id="form-frete" style="max-width:400px;margin:auto;display:flex;gap:1rem;">
-      <input type="text" id="cep" placeholder="Digite seu CEP" pattern="\\d{5}-?\\d{3}" required>
-      <button type="submit" class="btn">Calcular</button>
-    </form>
-    <!-- Espaço para futura integração com API (Correios/Melhor Envio) -->
-  </section>
-
-  <!-- ======== FOOTER ======== -->
-  <footer>
-    &copy; 2025 Noor Quadros Decorativos
-  </footer>
-
-  <!-- ======== JAVASCRIPT ======== -->
   <script>
-    // Pedido personalizado
-    document.getElementById('form-personalizado').addEventListener('submit', function(e){
-      e.preventDefault();
-      alert('Pedido enviado! Entraremos em contato em breve.');
-      this.reset();
-    });
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".carousel img");
 
-    // Calculadora de frete (simulação)
-    document.getElementById('form-frete').addEventListener('submit', function(e){
-      e.preventDefault();
-      const cep=document.getElementById('cep').value;
-      if(!cep){return;}
-      // Simulação de cálculo
-      alert('Frete estimado: R$ 29,90');
-      // Futuro: integrar API Correios/Melhor Envio aqui.
-    });
+    function showSlide(index) {
+      slides.forEach(slide => slide.classList.remove("active"));
+      slides[index].classList.add("active");
+    }
+
+    function changeSlide(n) {
+      slideIndex += n;
+      if (slideIndex >= slides.length) slideIndex = 0;
+      if (slideIndex < 0) slideIndex = slides.length - 1;
+      showSlide(slideIndex);
+    }
+
+    // Passagem automática a cada 4s
+    setInterval(() => changeSlide(1), 4000);
   </script>
+
 </body>
 </html>
